@@ -1,7 +1,7 @@
 # Winning Minds × Wisconsin Badgers Women's Tennis
 
-Info web pro kemp **26. 8. – 1. 9. 2026** v Madisonu (University of Wisconsin–Madison).
-Premium one-page web v modro-bílém stylu — vše je v jednom souboru `index.html`, žádný build není potřeba.
+Info web pro kemp **26. 8. - 1. 9. 2026** v Madisonu (University of Wisconsin-Madison).
+Premium one-page web v modro-bílém stylu. Vše je v jednom souboru `index.html`, žádný build není potřeba.
 
 ## Jak web upravit
 
@@ -9,7 +9,7 @@ Celý web je jeden soubor: **`index.html`**. Stačí ho otevřít, upravit a com
 
 ### Rozvrh (nejčastější úprava)
 
-Rozvrh se needituje v HTML, ale v datech na konci souboru — najdi v `index.html` blok `const SCHEDULE = [...]`.
+Rozvrh se needituje v HTML, ale v datech na konci souboru: najdi v `index.html` blok `const SCHEDULE = [...]`.
 Každý den je jedna položka:
 
 ```js
@@ -20,7 +20,7 @@ Každý den je jedna položka:
 },
 ```
 
-Změň texty `am` / `pm` / `title` podle potřeby — stránka se vykreslí automaticky.
+Změň texty `am` / `pm` / `title` podle potřeby a stránka se vykreslí automaticky.
 
 ### Dokumenty ke stažení
 
@@ -33,10 +33,16 @@ Změň texty `am` / `pm` / `title` podle potřeby — stránka se vykreslí auto
 
 Dokud je seznam prázdný, sekce zobrazuje „Nothing here yet".
 
+### Loga
+
+Logo Winning Minds je vložené přímo v `index.html` jako SVG symbol `#wm-mark` (hlavička, hero, patička, favicona). Jde o vektorovou rekonstrukci podle originálu; pokud budete chtít pixel-perfect verzi, pošlete mi exportované SVG a symbol vyměním.
+
+Logo Wisconsinu je vektorové červené "W" (symbol `#uw-w` v `index.html`). Prostředí, kde web vznikal, nemá přístup k uwbadgers.com, takže jde o stylizaci. Pro oficiální Motion W nahrajte exportovaný soubor (např. `assets/motion-w.svg`) a v `index.html` nahraďte všechny `<svg class="uw-mark">...</svg>` za `<img class="uw-mark" src="assets/motion-w.svg" alt="Wisconsin">`. Použití ochranné známky UW si nechte odsouhlasit programem.
+
 ### Ostatní texty
 
-Všechny sekce (Partnership, The System, Process, For Players, Team) jsou běžné HTML — texty najdeš přímo v `index.html` a upravíš na místě.
+Všechny sekce (Partnership, The System, Process, For Players, Team) jsou běžné HTML. Texty najdeš přímo v `index.html` a upravíš na místě.
 
 ## Publikace
 
-Web je statický — funguje na GitHub Pages (Settings → Pages → Deploy from branch), Vercelu, Netlify i kdekoliv jinde bez jakékoliv konfigurace.
+Web je statický a funguje na GitHub Pages (Settings → Pages → Deploy from branch), Vercelu, Netlify i kdekoliv jinde bez jakékoliv konfigurace.
