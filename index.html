@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Winning Minds × Wisconsin Badgers Women's Tennis | Mental Performance Camp</title>
 <meta name="description" content="Winning Minds Performance System at Wisconsin Badgers Women's Tennis. Mental performance testing, diagnostics and training. Madison, WI · Aug 26 - Sep 1, 2026.">
+<meta name="theme-color" content="#0A1F44">
+<link rel="canonical" href="https://winningmindsperfomance.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://winningmindsperfomance.com/">
+<meta property="og:site_name" content="Winning Minds Performance">
+<meta property="og:title" content="Winning Minds × Wisconsin Badgers Women's Tennis">
+<meta property="og:description" content="A week of mental performance diagnostics, 1:1 work and on-court integration. Madison, WI · Aug 26 - Sep 1, 2026.">
+<meta property="og:image" content="https://winningmindsperfomance.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Winning Minds × Wisconsin Badgers Women's Tennis">
+<meta name="twitter:description" content="A week of mental performance diagnostics, 1:1 work and on-court integration. Madison, WI · Aug 26 - Sep 1, 2026.">
+<meta name="twitter:image" content="https://winningmindsperfomance.com/og.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='2553%201767%20280%20280'%3E%3Crect%20x='2553'%20y='1767'%20width='280'%20height='280'%20rx='58'%20fill='%230A1F44'/%3E%3Cg%20fill='%23fff'%3E%3Cpath%20d='M2727.514,1895.8a2.53,2.53,0,0,0,2.768,1.883c4.865-.03,9.731.091,14.6.122,3.9.025,7.8.006,12.429.005a.176.176,0,0,0,.165-.239c-12.9-32.112-25.65-63.841-38.4-95.568l-1-.039c-.468.944-.973,1.871-1.365,2.845-3.6,8.94-6.968,17.983-10.862,26.793-1.666,3.77-1.3,6.931.156,10.521Q2716.892,1868.9,2727.514,1895.8Z'/%3E%3Cpath%20d='M2753.525,1916.124c-6.6-.039-13.195-.149-19.79-.064-1.05.014-2.707.636-3.034,1.416-2.362,5.633-4.4,11.4-6.665,17.075a12.172,12.172,0,0,1-.912,1.778,1.98,1.98,0,0,1-3.327.075,8.869,8.869,0,0,1-.984-1.748c-7.578-18.835-41.215-102.594-46.914-116.782q-2.979-7.418-5.951-14.839h-2.007l-.033.083-.041.1c-12.517,31.3-25.038,62.609-37.809,94.546,2.774,0,4.8-.01,6.836,0,6.6.039,13.2.149,19.79.064,1.051-.014,2.708-.636,3.035-1.416,2.361-5.633,4.4-11.4,6.665-17.075a12.315,12.315,0,0,1,.911-1.778,1.981,1.981,0,0,1,3.328-.075,8.973,8.973,0,0,1,.984,1.748c7.578,18.835,27.525,68.552,29.811,74.222q8.573,21.272,17.1,42.56,2.979,7.417,5.951,14.839h2.007c12.417-31.052,24.839-62.114,37.5-93.787a.689.689,0,0,0-.639-.945C2757.074,1916.128,2755.3,1916.134,2753.525,1916.124Z'/%3E%3Cpath%20d='M2658.906,1918.1a2.53,2.53,0,0,0-2.769-1.883c-4.865.03-9.73-.091-14.6-.122-3.9-.025-7.795-.006-12.429-.005a.177.177,0,0,0-.166.239c12.9,32.112,25.651,63.841,38.4,95.568l1,.039c.467-.943.973-1.871,1.365-2.845,3.6-8.94,6.968-17.983,10.862-26.793,1.666-3.77,1.3-6.931-.157-10.521Q2669.528,1944.99,2658.906,1918.1Z'/%3E%3C/g%3E%3C/svg%3E">
 <style>
   :root{
@@ -258,8 +272,22 @@
   .schedule{margin-top:48px;display:flex;flex-direction:column;gap:14px}
   .day{
     background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-    box-shadow:var(--card-shadow);overflow:hidden;
+    box-shadow:var(--card-shadow);overflow:hidden;position:relative;
   }
+  .day::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:var(--phase,var(--blue-500));
+  }
+  .day[data-phase="test"]{--phase:#60A5FA}
+  .day[data-phase="debrief"]{--phase:#3B82F6}
+  .day[data-phase="team"]{--phase:#2563EB}
+  .day[data-phase="court"]{--phase:#1D4ED8}
+  .day[data-phase="wrap"]{--phase:#0A1F44}
+  .day .day-tag{color:var(--phase);background:color-mix(in srgb,var(--phase) 10%,transparent)}
+  @supports not (background:color-mix(in srgb,red 10%,transparent)){
+    .day .day-tag{background:rgba(59,130,246,.09)}
+  }
+  .day-date{background:linear-gradient(160deg,var(--navy-900),var(--phase,var(--navy-800)))}
   .day-head{
     display:flex;align-items:center;gap:18px;flex-wrap:wrap;
     padding:20px 26px;cursor:default;
@@ -379,6 +407,31 @@
   /* ---------- Reveal animation ---------- */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
+  /* content must never stay hidden: no JS, no IntersectionObserver, or reduced motion */
+  .no-js .reveal{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .card:hover,a.doc:hover,.btn-primary:hover{transform:none}
+  }
+
+  /* ---------- Print (coaches print the schedule) ---------- */
+  @media print{
+    header,.mobile-nav,.hero .cta-row,.hero-mark,footer,.quote-band{display:none!important}
+    body{color:#000;background:#fff}
+    section{padding:18px 0;break-inside:avoid}
+    .hero{background:#fff;color:#000}
+    .hero .wrap{padding:0 0 12px}
+    .hero h1{font-size:24px}
+    .hero h1 .accent{color:#000;-webkit-text-fill-color:#000}
+    .hero p.lede{color:#333}
+    .hero .stats{display:none}
+    .card,.step,.day,.person,.expect,.doc{box-shadow:none;border:1px solid #ccc;break-inside:avoid}
+    .day-date{background:#eee;color:#000}
+    .day-date span{color:#555}
+    .reveal{opacity:1;transform:none}
+    a[href^="http"]::after{content:" (" attr(href) ")";font-size:10px;color:#666}
+  }
 
   /* ---------- Responsive ---------- */
   @media (max-width:960px){
@@ -532,7 +585,7 @@
           </li>
           <li>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-            A tradition of champions: Badger great Barb Urbanska-Lucido enters the UW Athletic Hall of Fame, Class of 2026
+            Full squad access: every player completes the diagnostic battery and her own 1:1 debrief
           </li>
         </ul>
       </div>
@@ -756,6 +809,11 @@
       </div>
     </div>
     <div class="schedule" id="scheduleList"><!-- rendered by JS from SCHEDULE data below --></div>
+    <noscript>
+      <div class="sched-note" style="margin-top:24px">
+        The day-by-day schedule needs JavaScript enabled. Please turn it on or ask us for the schedule by email.
+      </div>
+    </noscript>
   </div>
 </section>
 
@@ -850,7 +908,7 @@
       <div class="foot-col">
         <b>Badgers</b>
         <a href="https://uwbadgers.com/sports/womens-tennis" target="_blank" rel="noopener">Wisconsin Women's Tennis</a>
-        <a href="https://uwbadgers.com/news/2026/6/23/general-news-hof-class-of-2026-a-perfect-fit-the-barb-urbanska-lucido-story" target="_blank" rel="noopener">HOF Class of 2026 story</a>
+        <a href="#schedule">This week's schedule</a>
       </div>
     </div>
     <div class="foot-bottom">
@@ -868,37 +926,37 @@
    ========================================================= */
 const SCHEDULE = [
   {
-    d:"26", m:"AUG", day:"Wednesday", title:"Arrival & Kickoff", tag:"Intro",
+    d:"26", m:"AUG", day:"Wednesday", title:"Arrival & Kickoff", tag:"Intro", ph:"test",
     am:"Team introduction: who we are, how the week works and what the testing is for. Setup of the diagnostic stations.",
     pm:"Testing block 1: first group of players: individual interviews and psychological performance tests."
   },
   {
-    d:"27", m:"AUG", day:"Thursday", title:"Testing & Data Collection", tag:"Testing",
+    d:"27", m:"AUG", day:"Thursday", title:"Testing & Data Collection", tag:"Testing", ph:"test",
     am:"Testing continues: interviews, cognitive function measurement, autonomic nervous system (HRV) measurement.",
     pm:"Stress reactivity testing: measured response and recovery under cognitive load."
   },
   {
-    d:"28", m:"AUG", day:"Friday", title:"Testing Wrap-Up & First Debriefs", tag:"Testing → 1:1",
+    d:"28", m:"AUG", day:"Friday", title:"Testing Wrap-Up & First Debriefs", tag:"Testing → 1:1", ph:"debrief",
     am:"Final testing slots: completing the diagnostic battery for all players.",
     pm:"Data analysis and first 1:1 results debriefs with individual recommendations."
   },
   {
-    d:"29", m:"AUG", day:"Saturday", title:"1:1 Results & Recommendations", tag:"1:1",
+    d:"29", m:"AUG", day:"Saturday", title:"1:1 Results & Recommendations", tag:"1:1", ph:"debrief",
     am:"1:1 debriefs continue: every player walks through her results and gets her personal priorities.",
     pm:"Targeted 1:1 sessions begin: focused work where each player's data shows the biggest opportunity."
   },
   {
-    d:"30", m:"AUG", day:"Sunday", title:"Team Mindsetting & Goal Setting", tag:"Team",
+    d:"30", m:"AUG", day:"Sunday", title:"Team Mindsetting & Goal Setting", tag:"Team", ph:"team",
     am:"Team session on mindsetting: competitive identity, standards and the way this team wants to compete.",
     pm:"Goal-setting workshop: individual and team goals for the season, built on the testing data."
   },
   {
-    d:"31", m:"AUG", day:"Monday", title:"On-Court Transfer", tag:"On Court",
+    d:"31", m:"AUG", day:"Monday", title:"On-Court Transfer", tag:"On Court", ph:"court",
     am:"Practical on-court block: pressure situations, routines between points, error recovery in live play.",
     pm:"Competitive scenarios on court + parallel 1:1 sessions. What we train mentally goes into real play."
   },
   {
-    d:"1", m:"SEP", day:"Tuesday", title:"Integration & Roadmap", tag:"Wrap-Up",
+    d:"1", m:"SEP", day:"Tuesday", title:"Integration & Roadmap", tag:"Wrap-Up", ph:"wrap",
     am:"Final on-court integration and closing 1:1 check-ins.",
     pm:"Summary with the coaching staff: findings, recommendations and the long-term roadmap for the season."
   },
@@ -915,7 +973,7 @@ const DOCUMENTS = [
 /* ---------- render schedule ---------- */
 const schedEl = document.getElementById("scheduleList");
 schedEl.innerHTML = SCHEDULE.map(s => `
-  <div class="day reveal">
+  <div class="day reveal" data-phase="${s.ph || 'test'}">
     <div class="day-head">
       <div class="day-date"><b>${s.d}</b><span>${s.m}</span></div>
       <div class="day-title"><b>${s.title}</b><span>${s.day}</span></div>
@@ -988,11 +1046,19 @@ const mobileNav = document.getElementById("mobileNav");
 menuBtn.addEventListener("click", () => mobileNav.classList.toggle("open"));
 mobileNav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mobileNav.classList.remove("open")));
 
-/* ---------- reveal on scroll ---------- */
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-}, {threshold:.12, rootMargin:"0px 0px -40px 0px"});
-document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+/* ---------- reveal on scroll (never leaves content hidden) ---------- */
+const reveals = document.querySelectorAll(".reveal");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (!("IntersectionObserver" in window) || reduceMotion) {
+  reveals.forEach(el => el.classList.add("in"));
+} else {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, {threshold:.12, rootMargin:"0px 0px -40px 0px"});
+  reveals.forEach(el => io.observe(el));
+  /* safety net: anything still hidden after 3s gets shown anyway */
+  setTimeout(() => reveals.forEach(el => el.classList.add("in")), 3000);
+}
 </script>
 </body>
 </html>
