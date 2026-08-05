@@ -937,6 +937,32 @@ if (DOCUMENTS.length === 0) {
   `).join("");
 }
 
+/* =========================================================
+   EXACT BRAND LOGOS: upload the original vector files as
+   assets/logo.svg (Winning Minds) and assets/motion-w.svg
+   (Wisconsin) and the page swaps them in automatically,
+   in the header, hero watermark, partner card and footer.
+   Until the files exist, the built-in recreations are shown.
+   ========================================================= */
+[
+  {file:"assets/logo.svg",     id:"wm-mark", recolor:true },
+  {file:"assets/motion-w.svg", id:"uw-w",    recolor:false},
+].forEach(({file, id, recolor}) => {
+  fetch(file).then(r => r.ok ? r.text() : null).then(txt => {
+    if (!txt) return;
+    const src = new DOMParser().parseFromString(txt, "image/svg+xml").documentElement;
+    if (!src || src.nodeName.toLowerCase() !== "svg") return;
+    const sym = document.getElementById(id);
+    if (src.getAttribute("viewBox")) sym.setAttribute("viewBox", src.getAttribute("viewBox"));
+    sym.innerHTML = src.innerHTML;
+    if (recolor) sym.querySelectorAll("*").forEach(el => {
+      el.removeAttribute("style");
+      if (el.getAttribute("fill") !== "none") el.setAttribute("fill", "currentColor");
+      el.removeAttribute("stroke");
+    });
+  }).catch(() => {});
+});
+
 /* ---------- header on scroll ---------- */
 const header = document.getElementById("header");
 const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 24);

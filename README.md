@@ -35,9 +35,14 @@ Dokud je seznam prázdný, sekce zobrazuje „Nothing here yet".
 
 ### Loga
 
-Logo Winning Minds je vložené přímo v `index.html` jako SVG symbol `#wm-mark` (hlavička, hero, patička, favicona). Jde o vektorovou rekonstrukci podle originálu; pokud budete chtít pixel-perfect verzi, pošlete mi exportované SVG a symbol vyměním.
+Web má vestavěné vektorové rekonstrukce obou log a zároveň automatickou výměnu za originály:
 
-Logo Wisconsinu je vektorové červené "W" (symbol `#uw-w` v `index.html`). Prostředí, kde web vznikal, nemá přístup k uwbadgers.com, takže jde o stylizaci. Pro oficiální Motion W nahrajte exportovaný soubor (např. `assets/motion-w.svg`) a v `index.html` nahraďte všechny `<svg class="uw-mark">...</svg>` za `<img class="uw-mark" src="assets/motion-w.svg" alt="Wisconsin">`. Použití ochranné známky UW si nechte odsouhlasit programem.
+1. Nahrajte originální exporty do složky `assets/` pod přesnými názvy:
+   - `assets/logo.svg` = logo Winning Minds (samotný znak, SVG export z Illustratoru/Figmy)
+   - `assets/motion-w.svg` = oficiální Motion W Wisconsinu
+2. Nic dalšího není potřeba. Stránka si soubory při načtení sama natáhne a použije je v hlavičce, hero vodoznaku, kartě týmu i patičce. Logo Winning Minds se automaticky přebarvuje podle podkladu (bílé na tmavé, tmavé na bílé), Motion W si nechává své barvy.
+
+Dokud soubory neexistují, zobrazují se vestavěné rekonstrukce (symboly `#wm-mark` a `#uw-w` v `index.html`). Favicona používá vestavěný znak; po nahrání originálu ji na požádání překreslím. Použití ochranné známky UW si nechte odsouhlasit programem.
 
 ### Ostatní texty
 
