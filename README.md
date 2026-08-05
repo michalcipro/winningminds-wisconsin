@@ -35,19 +35,18 @@ Dokud je seznam prázdný, sekce zobrazuje „Nothing here yet".
 
 ### Loga
 
-Web má vestavěné vektorové rekonstrukce obou log a zároveň automatickou výměnu za originály:
+Logo Winning Minds je originální vektor zapracovaný přímo v `index.html`: symbol `#wm-mark` je samotný znak (hero vodoznak, favicona), symbol `#wm-lockup` je znak s nápisem (hlavička, patička). Barvu si bere automaticky z podkladu. Zdrojový soubor je uložený v `assets/winning-minds-lockup.svg`.
 
-1. Nahrajte originální exporty do složky `assets/` pod přesnými názvy:
-   - `assets/logo.svg` = logo Winning Minds (samotný znak, SVG export z Illustratoru/Figmy)
-   - `assets/motion-w.svg` = oficiální Motion W Wisconsinu
-2. Nic dalšího není potřeba. Stránka si soubory při načtení sama natáhne a použije je v hlavičce, hero vodoznaku, kartě týmu i patičce. Logo Winning Minds se automaticky přebarvuje podle podkladu (bílé na tmavé, tmavé na bílé), Motion W si nechává své barvy.
-
-Dokud soubory neexistují, zobrazují se vestavěné rekonstrukce (symboly `#wm-mark` a `#uw-w` v `index.html`). Favicona používá vestavěný znak; po nahrání originálu ji na požádání překreslím. Použití ochranné známky UW si nechte odsouhlasit programem.
+Logo Wisconsinu je zatím stylizované červené "W". Až budete mít oficiální Motion W, nahrajte ho jako `assets/motion-w.svg` a stránka ho automaticky použije v hlavičce, kartě týmu i patičce. Použití ochranné známky UW si nechte odsouhlasit programem.
 
 ### Ostatní texty
 
 Všechny sekce (Partnership, The System, Process, For Players, Team) jsou běžné HTML. Texty najdeš přímo v `index.html` a upravíš na místě.
 
-## Publikace
+## Publikace (Vercel)
 
-Web je statický a funguje na GitHub Pages (Settings → Pages → Deploy from branch), Vercelu, Netlify i kdekoliv jinde bez jakékoliv konfigurace.
+1. Na https://vercel.com/new se přihlaste přes GitHub a importujte repo `michalcipro/winningminds-wisconsin`
+2. Framework preset **Other**, Build Command i Output Directory nechte prázdné, klikněte **Deploy**
+3. Vercel od té chvíle nasadí každý push automaticky a dá vám URL ve tvaru `*.vercel.app`; ostrou verzi pak přepnete přidáním vlastní domény v Settings → Domains
+
+Web je čistě statický, takže funguje stejně i na GitHub Pages nebo Netlify.
