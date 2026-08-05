@@ -341,7 +341,7 @@
     background:linear-gradient(135deg,var(--blue-500),var(--navy-900));
     display:grid;place-items:center;color:#fff;font-size:24px;font-weight:700;letter-spacing:.02em;
   }
-  .person .avatar{margin-bottom:22px}
+  .person .avatar{width:88px;height:88px;font-size:28px;margin-bottom:22px}
   .person h3{font-size:21px;font-weight:700;letter-spacing:-.015em}
   .person .role{font-size:13.5px;color:var(--blue-600);font-weight:600;margin:4px 0 18px}
   .person p{font-size:14.5px;color:var(--ink-soft);margin-bottom:16px}
@@ -1279,7 +1279,7 @@ document.querySelectorAll(".avatar[data-photo]").forEach(el => {
   probe.onload = () => {
     el.style.backgroundImage = `url("${src}")`;
     el.style.backgroundSize = "cover";
-    el.style.backgroundPosition = "center";
+    el.style.backgroundPosition = "center 25%";  /* favours the face on tall portraits */
     el.style.color = "transparent";
   };
   probe.src = src;
