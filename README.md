@@ -45,7 +45,7 @@ Soubor `og.png` v kořeni je náhledová karta, která se ukáže, když někdo 
 
 Logo Winning Minds je originální vektor zapracovaný přímo v `index.html`: symbol `#wm-mark` je samotný znak (hero vodoznak, favicona), symbol `#wm-lockup` je znak s nápisem (hlavička, patička). Barvu si bere automaticky z podkladu. Zdrojový soubor je uložený v `assets/winning-minds-lockup.svg`.
 
-Logo Wisconsinu je zatím stylizované červené "W". Až budete mít oficiální Motion W, nahrajte ho jako `assets/motion-w.svg` a stránka ho automaticky použije v hlavičce, kartě týmu i patičce. Použití ochranné známky UW si nechte odsouhlasit programem.
+Oficiální Motion W Wisconsinu je vložený přímo v `index.html` jako obrázek v datovém formátu (hlavička, karta týmu, patička), takže web zůstává jediný soubor. Zdroj je v `assets/motion-w.png` s průhledným pozadím, maskot Bucky v `assets/bucky.png`. Použití ochranné známky UW si nechte odsouhlasit programem.
 
 ### Kontakty a FAQ
 
