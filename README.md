@@ -1,64 +1,71 @@
-# Winning Minds × Wisconsin Badgers Women's Tennis
+# Winning Minds × University of Wisconsin
 
-Info web pro kemp **26. 8. - 1. 9. 2026** v Madisonu (University of Wisconsin-Madison).
-Premium one-page web v modro-bílém stylu. Vše je v jednom souboru `index.html`, žádný build není potřeba.
+Info web pro **Sport Performance Consulting & Education Program** pro University of Wisconsin Women's Tennis, **25. 8. - 1. 9. 2026** v Madisonu.
+
+Web je jeden soubor `index.html` bez buildu. Loga jsou vložená přímo v něm, takže na hosting se nahrává jen `index.html` a `og.png`.
+
+## Právní rámec
+
+Web je psaný tak, aby odpovídal schválenému rozsahu programu. **Při jakékoliv úpravě textů se držte tohoto rozsahu:**
+
+Program je **sport-performance consulting a vzdělávání**. Pracuje se s pozorovatelným chováním na kurtu: příprava, rutiny mezi body, pozornost, rozhodování, exekuce pod tlakem, komunikace, týmové standardy a vzdělávání trenérů.
+
+Program **není a web nesmí tvrdit**, že poskytuje: psychologickou diagnostiku, psychologické testování, hodnocení osobnosti, hodnocení duševního zdraví, psychoterapii, klinické poradenství, léčbu psychických poruch, hypnózu, hypnoterapii, klinický biofeedback, lékařskou diagnostiku ani léčbu.
+
+Tato omezení jsou na webu vypsaná v sekci **Professional Scope**. Objeví-li se během programu klinické téma, je mimo rozsah a předává se licencovanému odborníkovi University of Wisconsin.
+
+Sekce Professional Scope obsahuje i **Delivery and compliance** doložku o koordinaci s UW Athletics a o alternativním způsobu dodání, pokud by athlete-facing část nebyla vhodná vzhledem k imigračnímu statusu konzultantů.
 
 ## Jak web upravit
 
-Celý web je jeden soubor: **`index.html`**. Stačí ho otevřít, upravit a commitnout.
+Vše je v `index.html`.
 
-### Rozvrh (nejčastější úprava)
+### Program (den po dni)
 
-Rozvrh se needituje v HTML, ale v datech na konci souboru: najdi v `index.html` blok `const SCHEDULE = [...]`.
-Každý den je jedna položka:
+Na konci souboru najděte `const PROGRAM = [`. Každý den je jedna položka:
 
 ```js
 {
-  d:"26", m:"AUG", day:"Wednesday", title:"Arrival & Kickoff", tag:"Intro",
-  am:"Text dopoledního bloku...",
-  pm:"Text odpoledního bloku..."
+  no:"Day 1", date:"August 25", wd:"Tuesday", ph:"a",
+  title:"Staff Alignment & Team Observation",
+  groups:[
+    {label:"Coaching staff meeting", items:["Objectives of the visit", "..."]},
+  ],
 },
 ```
 
-Změň texty `am` / `pm` / `title` podle potřeby a stránka se vykreslí automaticky.
+`ph` je barva pruhu (`a` až `e`, nebo `off` pro volný den). Stránka se vykreslí sama.
 
 ### Dokumenty ke stažení
 
-1. Nahraj soubor do složky `documents/` (např. `documents/wm-overview.pdf`)
-2. V `index.html` najdi `const DOCUMENTS = [` a přidej řádek:
+1. Nahrajte soubor do složky `documents/`
+2. V `index.html` najděte `const DOCUMENTS = [` a přidejte:
 
 ```js
-{ name:"WM Performance System Overview", file:"documents/wm-overview.pdf", desc:"PDF · Kompletní metodika" },
+{ name:"Competition Routine Framework", file:"documents/routines.pdf", desc:"PDF · Pre-match, pre-point, between points" },
 ```
 
-Dokud je seznam prázdný, sekce zobrazuje „Nothing here yet".
+### Fotky konzultantů
 
-### Fotky do sekce Team a Contact
-
-Nahrajte portréty jako `assets/michal.jpg` a `assets/milan.jpg` (čtvercové, min. 600 px) a stránka je automaticky použije místo iniciál, v sekci Team i na kontaktních kartách. Dokud soubory neexistují, zobrazují se iniciály.
-
-### Náhledový obrázek pro sdílení
-
-Soubor `og.png` v kořeni je náhledová karta, která se ukáže, když někdo pošle odkaz mailem, v iMessage nebo na sociální síti. Musí ležet přímo v kořeni webu vedle `index.html`.
-
-### Loga
-
-Logo Winning Minds je originální vektor zapracovaný přímo v `index.html`: symbol `#wm-mark` je samotný znak (hero vodoznak, favicona), symbol `#wm-lockup` je znak s nápisem (hlavička, patička). Barvu si bere automaticky z podkladu. Zdrojový soubor je uložený v `assets/winning-minds-lockup.svg`.
-
-Oficiální Motion W Wisconsinu je vložený přímo v `index.html` jako obrázek v datovém formátu (hlavička, karta týmu, patička), takže web zůstává jediný soubor. Zdroj je v `assets/motion-w.png` s průhledným pozadím, maskot Bucky v `assets/bucky.png`. Použití ochranné známky UW si nechte odsouhlasit programem.
+Nahrajte `assets/michal.jpg` a `assets/milan.jpg` (čtvercové, min. 600 px). Web je použije automaticky místo iniciál v sekci The Consultants i na kontaktních kartách.
 
 ### Kontakty a FAQ
 
-E-mailové adresy jsou v sekci Contact a v patičce `index.html`, hledejte `mailto:`. Otázky a odpovědi v sekci FAQ jsou běžné HTML bloky `<details>`, přidání další otázky je zkopírování jednoho bloku.
+E-maily jsou v sekci Contact a v patičce, hledejte `mailto:`. FAQ jsou bloky `<details>`, přidání otázky je zkopírování jednoho bloku.
 
-### Ostatní texty
+### Loga
 
-Všechny sekce (Partnership, The System, Process, For Players, Team) jsou běžné HTML. Texty najdeš přímo v `index.html` a upravíš na místě.
+Logo Winning Minds je originální vektor jako SVG symbol `#wm-mark` (znak) a `#wm-lockup` (znak s nápisem), zdroj v `assets/winning-minds-lockup.svg`. Oficiální Motion W je vložený jako obrázek v datovém formátu, zdroj v `assets/motion-w.png`, maskot Bucky v `assets/bucky.png`. Použití ochranné známky UW si nechte odsouhlasit programem.
 
-## Publikace (Vercel)
+### Náhledový obrázek pro sdílení
 
-1. Na https://vercel.com/new se přihlaste přes GitHub a importujte repo `michalcipro/winningminds-wisconsin`
-2. Framework preset **Other**, Build Command i Output Directory nechte prázdné, klikněte **Deploy**
-3. Vercel od té chvíle nasadí každý push automaticky a dá vám URL ve tvaru `*.vercel.app`; ostrou verzi pak přepnete přidáním vlastní domény v Settings → Domains
+`og.png` v kořeni je karta, která se ukáže při sdílení odkazu. Musí ležet vedle `index.html`.
 
-Web je čistě statický, takže funguje stejně i na GitHub Pages nebo Netlify.
+## Nasazení (Webglobe)
+
+1. admin.webglobe.cz → Hosting → FTP a soubory → Správa souborů
+2. Vybrat doménu, otevřít složku `public_html`
+3. Nahrát `index.html` a `og.png`, staré verze přepsat
+4. SSL certifikát → Let's Encrypt aktivní, zaškrtnout vynucení https
+
+Web je statický, funguje stejně na GitHub Pages, Vercelu i Netlify.
