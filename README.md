@@ -20,21 +20,20 @@ Sekce Professional Scope obsahuje i **Delivery and compliance** doložku o koord
 
 Vše je v `index.html`.
 
-### Program (den po dni)
+### Rozvrh (kalendář)
 
-Na konci souboru najděte `const PROGRAM = [`. Každý den je jedna položka:
+Na konci `index.html` najděte `const CALENDAR = {`. Každý den je klíč (číslo dne) a v něm časové sloty:
 
 ```js
-{
-  no:"Day 1", date:"August 25", wd:"Tuesday", ph:"a",
-  title:"Staff Alignment & Team Observation",
-  groups:[
-    {label:"Coaching staff meeting", items:["Objectives of the visit", "..."]},
-  ],
+"25":{
+  "9:00":  {split:[M("Katya"), M("Masha")]},   // dělený slot: vlevo Michal, vpravo Milan
+  "11:00": {full:DR("Katya · Masha · Elli · Parker")},
 },
 ```
 
-`ph` je barva pruhu (`a` až `e`, nebo `off` pro volný den). Stránka se vykreslí sama.
+Zkratky nad daty: `M()` mapping session, `R()` review session, `O()` 1:1 session, `W()` planner session, `DR()` visual & reaction drills, `BRK` pauza. Témata dnů a popisky sloupců jsou v `const DAYS`.
+
+Pojmenování slotů drží terminologii schváleného rozsahu programu. Při úpravách nepoužívejte slova jako diagnostika, testování nebo vyhodnocení ve smyslu psychologického posouzení.
 
 ### Dokumenty ke stažení
 
